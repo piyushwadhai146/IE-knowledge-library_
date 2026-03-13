@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Shift Performance Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Arial, sans-serif;
+background:#eef2f7;
+margin:0;
+text-align:center;
+}
+
+header{
+background:#0c2340;
+color:white;
+padding:15px 30px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+.container{
+padding:40px;
+}
+
+input{
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#0c2340;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+canvas{
+max-width:700px;
+margin-top:30px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Shift Performance Dashboard</h2>
+
+<nav>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Logout</a>
+</nav>
+
+</header>
+
+
+<div class="container">
+
+<h3>Enter Production for Each Shift</h3>
+
+<input type="number" id="morning" placeholder="Morning Shift Units">
+
+<input type="number" id="afternoon" placeholder="Afternoon Shift Units">
+
+<input type="number" id="night" placeholder="Night Shift Units">
+
+<br><br>
+
+<button onclick="generateChart()">Generate Shift Performance</button>
+
+<br><br>
+
+<canvas id="shiftChart"></canvas>
+
+</div>
+
+
+<script>
+
+function generateChart(){
+
+let morning=document.getElementById("morning").value;
+let afternoon=document.getElementById("afternoon").value;
+let night=document.getElementById("night").value;
+
+let ctx=document.getElementById("shiftChart");
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+labels:["Morning Shift","Afternoon Shift","Night Shift"],
+
+datasets:[{
+label:"Production Output",
+
+data:[morning,afternoon,night]
+
+}]
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

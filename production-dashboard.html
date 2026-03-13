@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Production Dashboard</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef2f7;
+margin:0;
+text-align:center;
+}
+
+header{
+background:#0c2340;
+color:white;
+padding:15px;
+}
+
+.container{
+padding:40px;
+}
+
+canvas{
+max-width:800px;
+margin:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Production Dashboard</h2>
+
+<a href="dashboard.html" style="color:white;">Back to Dashboard</a>
+
+</header>
+
+<div class="container">
+
+<h3>Daily Production Output</h3>
+
+<canvas id="productionChart"></canvas>
+
+</div>
+
+<script>
+
+let ctx=document.getElementById("productionChart");
+
+new Chart(ctx,{
+
+type:'line',
+
+data:{
+labels:["Mon","Tue","Wed","Thu","Fri","Sat"],
+
+datasets:[{
+
+label:"Units Produced",
+
+data:[120,150,170,160,180,200],
+
+fill:false
+
+}]
+
+}
+
+});
+
+</script>
+
+</body>
+</html>

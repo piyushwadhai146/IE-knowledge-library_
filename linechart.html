@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Line Balancing Chart</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+font-family:Arial;
+background:#eef2f7;
+margin:0;
+text-align:center;
+}
+
+header{
+background:#0c2340;
+color:white;
+padding:15px;
+}
+
+.container{
+padding:40px;
+}
+
+input{
+padding:10px;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#0c2340;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+canvas{
+max-width:700px;
+margin:auto;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Line Balancing Chart Generator</h2>
+
+<a href="dashboard.html" style="color:white;">Back to Dashboard</a>
+
+</header>
+
+<div class="container">
+
+<h3>Enter Workstation Times (seconds)</h3>
+
+<input type="number" id="s1" placeholder="Station 1">
+<input type="number" id="s2" placeholder="Station 2">
+<input type="number" id="s3" placeholder="Station 3">
+<input type="number" id="s4" placeholder="Station 4">
+
+<br><br>
+
+<button onclick="generateChart()">Generate Chart</button>
+
+<br><br>
+
+<canvas id="lineChart"></canvas>
+
+</div>
+
+<script>
+
+function generateChart(){
+
+let s1=document.getElementById("s1").value;
+let s2=document.getElementById("s2").value;
+let s3=document.getElementById("s3").value;
+let s4=document.getElementById("s4").value;
+
+let ctx=document.getElementById("lineChart");
+
+new Chart(ctx,{
+
+type:'bar',
+
+data:{
+labels:["Station 1","Station 2","Station 3","Station 4"],
+datasets:[{
+label:"Workstation Time",
+data:[s1,s2,s3,s4]
+}]
+}
+
+});
+
+}
+
+</script>
+
+</body>
+</html>

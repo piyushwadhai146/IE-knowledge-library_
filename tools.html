@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>IE Tools</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#eef2f7;
+}
+
+/* HEADER */
+
+header{
+background:#0c2340;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* TOOL SECTION */
+
+.tools{
+padding:60px;
+text-align:center;
+}
+
+.tool-card{
+background:white;
+padding:30px;
+margin:30px auto;
+width:400px;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+input{
+padding:10px;
+width:80%;
+margin:10px;
+}
+
+button{
+padding:10px 20px;
+background:#0c2340;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+.result{
+margin-top:10px;
+font-weight:bold;
+color:#0c2340;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Industrial Engineering Tools</h2>
+
+<nav>
+<a href="dashboard.html">Dashboard</a>
+<a href="index.html">Logout</a>
+</nav>
+
+</header>
+
+
+<section class="tools">
+
+<h1>Industrial Engineering Calculators</h1>
+
+<!-- Cycle Time -->
+
+<div class="tool-card">
+
+<h2>Cycle Time Calculator</h2>
+
+<input type="number" id="availableTime" placeholder="Available Time (minutes)">
+
+<input type="number" id="unitsProduced" placeholder="Units Produced">
+
+<button onclick="cycleTime()">Calculate</button>
+
+<div class="result" id="cycleResult"></div>
+
+</div>
+
+
+<!-- Takt Time -->
+
+<div class="tool-card">
+
+<h2>Takt Time Calculator</h2>
+
+<input type="number" id="taktTime" placeholder="Available Time (minutes)">
+
+<input type="number" id="customerDemand" placeholder="Customer Demand">
+
+<button onclick="takt()">Calculate</button>
+
+<div class="result" id="taktResult"></div>
+
+</div>
+
+
+<!-- Line Efficiency -->
+
+<div class="tool-card">
+
+<h2>Line Efficiency Calculator</h2>
+
+<input type="number" id="workContent" placeholder="Total Work Content">
+
+<input type="number" id="stations" placeholder="Number of Stations">
+
+<input type="number" id="cycle" placeholder="Cycle Time">
+
+<button onclick="efficiency()">Calculate</button>
+
+<div class="result" id="efficiencyResult"></div>
+
+</div>
+
+</section>
+
+
+<script>
+
+/* Cycle Time */
+
+function cycleTime(){
+
+let time=document.getElementById("availableTime").value;
+let units=document.getElementById("unitsProduced").value;
+
+let result=time/units;
+
+document.getElementById("cycleResult").innerHTML="Cycle Time = "+result.toFixed(2)+" minutes/unit";
+
+}
+
+/* Takt Time */
+
+function takt(){
+
+let time=document.getElementById("taktTime").value;
+let demand=document.getElementById("customerDemand").value;
+
+let result=time/demand;
+
+document.getElementById("taktResult").innerHTML="Takt Time = "+result.toFixed(2)+" minutes/unit";
+
+}
+
+/* Line Efficiency */
+
+function efficiency(){
+
+let work=document.getElementById("workContent").value;
+let stations=document.getElementById("stations").value;
+let cycle=document.getElementById("cycle").value;
+
+let result=(work/(stations*cycle))*100;
+
+document.getElementById("efficiencyResult").innerHTML="Line Efficiency = "+result.toFixed(2)+" %";
+
+}
+
+</script>
+
+</body>
+</html>

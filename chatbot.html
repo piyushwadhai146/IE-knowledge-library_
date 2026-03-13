@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>IE AI Assistant</title>
+
+<style>
+
+body{
+font-family:Arial;
+margin:0;
+background:#eef2f7;
+}
+
+/* HEADER */
+
+header{
+background:#0c2340;
+color:white;
+padding:15px 40px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+margin-left:20px;
+}
+
+/* CHAT AREA */
+
+.chat-container{
+width:500px;
+margin:50px auto;
+background:white;
+border-radius:10px;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+padding:20px;
+}
+
+.chat-box{
+height:300px;
+overflow-y:auto;
+border:1px solid #ccc;
+padding:10px;
+margin-bottom:10px;
+}
+
+.user{
+text-align:right;
+color:blue;
+margin:5px;
+}
+
+.bot{
+text-align:left;
+color:green;
+margin:5px;
+}
+
+input{
+width:75%;
+padding:10px;
+}
+
+button{
+padding:10px;
+background:#0c2340;
+color:white;
+border:none;
+cursor:pointer;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Industrial Engineering AI Assistant</h2>
+
+<nav>
+<a href="dashboard.html">Dashboard</a>
+<a href="tools.html">IE Tools</a>
+<a href="index.html">Logout</a>
+</nav>
+
+</header>
+
+
+<div class="chat-container">
+
+<h3>Ask Industrial Engineering Questions</h3>
+
+<div class="chat-box" id="chatBox"></div>
+
+<input type="text" id="userInput" placeholder="Ask about IE concepts...">
+
+<button onclick="send()">Send</button>
+
+</div>
+
+
+<script>
+
+function send(){
+
+let input=document.getElementById("userInput").value.toLowerCase();
+let chat=document.getElementById("chatBox");
+
+chat.innerHTML += "<div class='user'>"+input+"</div>";
+
+let response="Sorry, I don't understand that question. Please ask about Industrial Engineering topics.";
+
+/* GREETING */
+
+if(input.includes("hello") || input.includes("hi")){
+response="Hello 👋 Welcome to the Industrial Engineering Assistant. You can ask about Cycle Time, Takt Time, Lean, 5S, Line Balancing and more.";
+}
+
+/* INDUSTRIAL ENGINEERING */
+
+else if(input.includes("industrial engineering")){
+response="Industrial Engineering focuses on improving processes, productivity and efficiency using methods like work study, lean manufacturing and line balancing.";
+}
+
+/* CYCLE TIME */
+
+else if(input.includes("cycle time")){
+response="Cycle Time is the time required to produce one unit from start to finish in a process.";
+}
+
+/* TAKT TIME */
+
+else if(input.includes("takt time")){
+response="Takt Time is the rate at which products must be produced to meet customer demand.";
+}
+
+/* LINE BALANCING */
+
+else if(input.includes("line balancing")){
+response="Line Balancing is the process of distributing tasks equally among workstations to reduce idle time and improve efficiency.";
+}
+
+/* LEAN */
+
+else if(input.includes("lean")){
+response="Lean Manufacturing focuses on eliminating waste and improving process efficiency.";
+}
+
+/* 5S */
+
+else if(input.includes("5s")){
+response="5S stands for Sort, Set in Order, Shine, Standardize and Sustain. It helps maintain organized and efficient workplaces.";
+}
+
+/* SMV */
+
+else if(input.includes("smv")){
+response="SMV means Standard Minute Value. It is the standard time required for a worker to complete a task.";
+}
+
+/* WORK STUDY */
+
+else if(input.includes("work study")){
+response="Work Study is a technique used to analyze work methods and measure work time to improve productivity.";
+}
+
+/* TIME STUDY */
+
+else if(input.includes("time study")){
+response="Time Study measures the time taken by a worker to complete a task using a stopwatch.";
+}
+
+/* METHOD STUDY */
+
+else if(input.includes("method study")){
+response="Method Study analyzes and improves work methods to reduce unnecessary movements and increase efficiency.";
+}
+
+/* PRODUCTIVITY */
+
+else if(input.includes("productivity")){
+response="Productivity is the ratio of output produced to the input used in production.";
+}
+
+/* 8 WASTES */
+
+else if(input.includes("waste") || input.includes("8 waste")){
+response="The 8 wastes of Lean are Transportation, Inventory, Motion, Waiting, Overproduction, Overprocessing, Defects and Unused Talent.";
+}
+
+/* LINE EFFICIENCY */
+
+else if(input.includes("line efficiency")){
+response="Line Efficiency measures how effectively a production line operates using the formula: (Work Content / (Stations × Cycle Time)) × 100.";
+}
+
+chat.innerHTML += "<div class='bot'>"+response+"</div>";
+
+document.getElementById("userInput").value="";
+
+chat.scrollTop = chat.scrollHeight;
+
+}
+
+</script>
+
+</body>
+</html>
