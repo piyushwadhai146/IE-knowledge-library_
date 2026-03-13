@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Industrial Engineering Knowledge Library</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<h2>Industrial Engineering Knowledge Library</h2>
+
+<nav>
+<a href="#">Home</a>
+<a onclick="showLogin()">Login</a>
+</nav>
+
+</header>
+
+
+<!-- HERO SECTION -->
+
+<section class="hero">
+
+<div class="hero-content">
+
+<h1>Industrial Engineering Knowledge Hub</h1>
+
+<p>Learn Lean, Line Balancing, 5S and Process Improvement</p>
+
+<a class="btn" onclick="showLogin()">Explore Knowledge</a>
+
+</div>
+
+</section>
+
+
+<!-- LOGIN POPUP -->
+
+<div id="loginModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close" onclick="closeLogin()">&times;</span>
+
+<h2>Login</h2>
+
+<input type="text" id="username" placeholder="Username"><br><br>
+
+<input type="password" id="password" placeholder="Password"><br><br>
+
+<button onclick="login()">Login</button>
+
+</div>
+
+</div>
+
+
+<!-- LEADERSHIP -->
+
+<section class="leadership">
+
+<h2>Leadership</h2>
+
+<div class="leader-row">
+
+<div class="leader">
+<img src="Manager.jpeg">
+<h3>Nitin Desai</h3>
+<p>IE Head</p>
+</div>
+
+<div class="horizontal-line"></div>
+
+<div class="leader">
+<img src="Shailendra Khade.jpeg">
+<h3>Shailendra Khade</h3>
+<p>IE Manager</p>
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+
+<p>© 2026 Industrial Engineering Knowledge Library</p>
+
+<p>Developed & Designed by <b>Piyush Wadhai</b></p>
+
+</footer>
+
+<script>
+
+function showLogin(){
+document.getElementById("loginModal").style.display="block";
+}
+
+function closeLogin(){
+document.getElementById("loginModal").style.display="none";
+}
+
+function login(){
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user==="admin" && pass==="1234"){
+window.location.href="dashboard.html";
+}
+
+else{
+alert("Invalid Username or Password");
+}
+
+}
+
+</script>
+
+</body>
+</html>
